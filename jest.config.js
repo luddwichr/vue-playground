@@ -4,7 +4,7 @@ module.exports = {
   clearMocks: true,
   moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
   transform: {
-    "^.+\\.vue$": "@vue/vue3-jest",
-    "^.+\\.ts$": "ts-jest"
-  },
+    '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.ts$': 'ts-jest'
+  }
 };
