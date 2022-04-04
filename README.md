@@ -1,4 +1,4 @@
-# Yarn 3 + Vue 3 + Typescript + Vite + Jest + VS Code
+# Yarn 3 + Vue 3 + Typescript + Vite + Jest + VS Code + ESLint + Prettier
 
 ## Setup steps
 
@@ -34,9 +34,15 @@
 - Setup formatting with prettier:
   - Install prettier: `yarn add -D prettier`
   - Configure `.prettierrc.json` and `.prettierignore` (see [docs](https://prettier.io/docs/en/install.html) for more)
+  - Add script in `package.json`: `"prettier --write ."`
 - Setup pre-commit hooks: 
     - follow [these instructions](https://typicode.github.io/husky/#/?id=install-1) for husky
     - follow [these instructions](https://prettier.io/docs/en/install.html#git-hooks) for prettier
+- Setup linting with ESLint:
+  - Install ESLint: `yarn add -D eslint eslint-config-prettier eslint-plugin-vue @typescript-eslint/eslint-plugin @typescript-eslint/parser vue-eslint-parser`
+  - Read [eslint-plugin-vue documentation](https://eslint.vuejs.org/user-guide/#installation) to learn how to configure ESLint with Typescript and Vue 3
+  - Take a look at my `.eslintrc.js` (using `yarn create @eslint/config` required some manual tuning to work with Vue 3)
+  - Add script in `package.json`: `eslint --ext .js,.ts,.vue --ignore-path .prettierignore .` (note: I reuse the exclusion rules for prettier to avoid file duplication)
 
 ### VSCode Setup
 

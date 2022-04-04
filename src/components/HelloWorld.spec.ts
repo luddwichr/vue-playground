@@ -20,7 +20,7 @@ describe('HelloWorld', () => {
     expect(findCounter().text()).toContain('Count: 1');
   });
 
-  function createComponent(msg: string = '') {
+  function createComponent(msg = '') {
     wrapper = shallowMount(HelloWorld, {props: {msg}});
   }
 
