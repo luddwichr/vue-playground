@@ -55,6 +55,7 @@
 - Install [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin)
   - [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471) is not compatible with Yarn PnP!
 - Install [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - Configure plugin as default code formatter in `.vscode/settings.json`: `"editor.defaultFormatter": "esbenp.prettier-vscode"`
 
 ### A note on using jest.config.ts
 
@@ -104,9 +105,7 @@ Jest:
 
 ## TODOs
 
-- Verify that `"exclude": ["src/**/*.spec.ts"]` in `tsconfig.json` is the right way to go
 - Transforming css/images in jest?
-- Setup EsLint
 - ESM support for ts-node?
 - Explain build steps
 - https://class-component.vuejs.org/
