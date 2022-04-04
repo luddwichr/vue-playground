@@ -55,7 +55,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.6.2"],\
             ["ts-jest", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:27.1.4"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
-            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.0"],\
+            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.1"],\
             ["vue", "npm:3.2.31"],\
             ["vue-eslint-parser", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:8.3.0"],\
             ["vue-tsc", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:0.33.9"]\
@@ -1673,7 +1673,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-vue", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.3.1"],\
             ["@types/vite", null],\
             ["@types/vue", null],\
-            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.0"],\
+            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.1"],\
             ["vue", "npm:3.2.31"]\
           ],\
           "packagePeers": [\
@@ -7003,17 +7003,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["vite", [\
-        ["npm:2.9.0", {\
-          "packageLocation": "./.yarn/cache/vite-npm-2.9.0-e623e76461-2355a5a7a5.zip/node_modules/vite/",\
+        ["npm:2.9.1", {\
+          "packageLocation": "./.yarn/cache/vite-npm-2.9.1-bf1ef94a48-0f0ac9337f.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "npm:2.9.0"]\
+            ["vite", "npm:2.9.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.0", {\
-          "packageLocation": "./.yarn/__virtual__/vite-virtual-35fb86414d/0/cache/vite-npm-2.9.0-e623e76461-2355a5a7a5.zip/node_modules/vite/",\
+        ["virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.1", {\
+          "packageLocation": "./.yarn/__virtual__/vite-virtual-6cde3fa2e2/0/cache/vite-npm-2.9.1-bf1ef94a48-0f0ac9337f.zip/node_modules/vite/",\
           "packageDependencies": [\
-            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.0"],\
+            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.1"],\
             ["@types/less", null],\
             ["@types/sass", null],\
             ["@types/stylus", null],\
@@ -7143,7 +7143,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.6.2"],\
             ["ts-jest", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:27.1.4"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
-            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.0"],\
+            ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.1"],\
             ["vue", "npm:3.2.31"],\
             ["vue-eslint-parser", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:8.3.0"],\
             ["vue-tsc", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:0.33.9"]\

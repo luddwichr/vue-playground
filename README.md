@@ -4,6 +4,7 @@
 
 - Install yarn (globally): `npm install yarn --global`
 - Configure yarn version: `yarn set version stable`
+- Install `yarn plugin import interactive-tools` to conveniently update dependencies via `yarn upgrade-interactive`
 - Initialize vite project: `yarn create vite` and select `vue-tsc` when prompted
 - Add some yarn support for Typescript: `yarn plugin import typescript` (see [here](https://yarnpkg.com/api/modules/plugin_typescript.html) for more)
 - Setup jest as test runner:
