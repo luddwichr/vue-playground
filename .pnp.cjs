@@ -54,6 +54,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:12.3.7"],\
             ["prettier", "npm:2.6.2"],\
             ["ts-jest", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:27.1.4"],\
+            ["tslib", "npm:2.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.1"],\
             ["vue", "npm:3.2.31"],\
@@ -7142,6 +7143,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:12.3.7"],\
             ["prettier", "npm:2.6.2"],\
             ["ts-jest", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:27.1.4"],\
+            ["tslib", "npm:2.3.1"],\
             ["typescript", "patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=bda367"],\
             ["vite", "virtual:6a9dcf9a6151dbe1bc96e8bfe91b25da5d69bb6419aa7b240bf9125862e10230f55c86e3742427a35f49132189e9c7d72a7933b68f3b785783cce27906bb37cf#npm:2.9.1"],\
             ["vue", "npm:3.2.31"],\

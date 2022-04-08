@@ -58,7 +58,7 @@
 - Install [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - Configure plugin as default code formatter in `.vscode/settings.json`: `"editor.defaultFormatter": "esbenp.prettier-vscode"`
 
-### A note on using jest.config.ts
+### A note on using jest.config.ts (don't...)
 
 I first really wanted the Jest config to be configured via a Typescript file for consistency.
 However, this requires introducing several dependencies and a more complicated setup.
@@ -117,4 +117,4 @@ Jest:
 
 ## Current workarounds
 
-- Remove `"skipLibCheck": true` in tsconfig.json once https://github.com/johnsoncodehk/volar/issues/1114 is resolved
+- Remove `"skipLibCheck": true` in tsconfig.json once [this](https://github.com/johnsoncodehk/volar/issues/1114) and [this](https://github.com/vuejs/core/issues/1228) issue are resolved
