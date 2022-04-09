@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Demo App</title>
+  </head>
+  <body>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+    
+    <div id="app">
+      <h1>{{ message }}</h1>
+      Counter: {{ count }}
+      <button @click="increment">+</button>
+    </div>
+    
+    <script type="module">
+      import { createApp } from 'vue'
+    
+      createApp({
+        data() {
+          return {
+            message: 'Hello Vue!',
+            count: 0
+          }
+        },
+        methods: {
+            increment() {
+                this.count++
+            }
+        }
+      }).mount('#app')
+    </script>
+  </body>
+</html>
