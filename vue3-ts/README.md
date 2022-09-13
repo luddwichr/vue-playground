@@ -3,12 +3,14 @@
 ## Setup steps
 
 - Install yarn (globally): `npm install yarn --global`
+- Initialize vite project: `yarn create vite <PROJECT_NAME> --template vue-ts`
+- Go to project folder: `cd <PROJECT_NAME>`
 - Configure yarn version: `yarn set version stable`
-- Install `yarn plugin import interactive-tools` to conveniently update dependencies via `yarn upgrade-interactive`
-- Initialize vite project: `yarn create vite` and select `vue-tsc` when prompted
+- Install dependencies: `yarn install`
+- Install `yarn plugin import interactive-tools` to conveniently update dependencies via `yarn upgrade-interactive` (see [here](https://yarnpkg.com/api/modules/plugin_interactive_tools.html) for more)
 - Add some yarn support for Typescript: `yarn plugin import typescript` (see [here](https://yarnpkg.com/api/modules/plugin_typescript.html) for more)
 - Setup jest as test runner:
-  - Install dependencies: `yarn add -D jest @types/jest ts-jest` (see [Jest docs](https://jestjs.io/docs/getting-started#using-typescript-via-ts-jest) for more)
+  - Install dependencies: `yarn add -D jest ts-jest` (see [Jest docs](https://jestjs.io/docs/getting-started#using-typescript-via-ts-jest) for more)
   - Add `"test": "jest"` to `scripts` section of `package.json`
   - Create Jest configuration file `jest.config.js`:
     ```js
@@ -23,7 +25,7 @@
     ```
     Note: this setup is a bit different than `yarn ts-jest config:init` (e.g `transform` is used instead of `preset`)
 - Setup testing for Vue:
-  - Install dependencies: `@vue/test-utils @vue/vue3-jest @babel/core babel-jest @vue/compiler-sfc @vue/compiler-dom`
+  - Install dependencies: `yarn add -D @vue/test-utils @vue/vue3-jest @babel/core babel-jest @vue/compiler-sfc @vue/compiler-dom`
   - Configure processing Single-File Components in `jest.config.js`:
     ```js
         moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
@@ -35,7 +37,7 @@
 - Setup formatting with prettier:
   - Install prettier: `yarn add -D prettier`
   - Configure `.prettierrc.json` and `.prettierignore` (see [docs](https://prettier.io/docs/en/install.html) for more)
-  - Add script in `package.json`: `"prettier --write ."`
+  - Add script `format` in `package.json`: `"prettier --write ."`
 - Setup pre-commit hooks: 
     - follow [these instructions](https://typicode.github.io/husky/#/?id=install-1) for husky
     - follow [these instructions](https://prettier.io/docs/en/install.html#git-hooks) for prettier
@@ -50,11 +52,8 @@
 - Install [VSCode](https://code.visualstudio.com/)
 - Install [ZipFS plugin](https://marketplace.visualstudio.com/items?itemName=arcanis.vscode-zipfs) to support files zipped by yarn
 - Add Yarn support for VSCode: `yarn dlx @yarnpkg/sdks vscode`
-- [Use Workspaces version of Typescript](https://code.visualstudio.com/docs/typescript/typescript-compiling#_using-the-workspace-version-of-typescript)
-- Install [Volar plugin](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) for Vue support
+- Install [Volar plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for Vue support
   - Use Workspaces version of Typescript for Volar via action "Volar: Select Typescript Version..."
-- Install [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin)
-  - [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471) is not compatible with Yarn PnP!
 - Install [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - Configure plugin as default code formatter in `.vscode/settings.json`: `"editor.defaultFormatter": "esbenp.prettier-vscode"`
 
@@ -111,10 +110,6 @@ Jest:
 - Explain build steps
 - https://class-component.vuejs.org/
 
-## Notes
-
-- `@vue/test-utils@next` and `@vue/vue3-jest` are still in RC / Alpha mode and are not considered production ready
-
-## Current workarounds
+## Current insufficiencies
 
 - Remove `"skipLibCheck": true` in tsconfig.json once [this](https://github.com/johnsoncodehk/volar/issues/1114) and [this](https://github.com/vuejs/core/issues/1228) issue are resolved
