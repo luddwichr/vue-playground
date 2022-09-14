@@ -6,5 +6,8 @@ module.exports = {
   transform: {
     '^.+\\.vue$': '@vue/vue3-jest',
     '^.+\\.ts$': 'ts-jest'
+  },
+  testEnvironmentOptions: {
+    customExportConditions: ['node', 'node-addons']
   }
 };

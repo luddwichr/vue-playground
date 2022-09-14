@@ -11,7 +11,7 @@
     "importHelpers": true,
     "emitDecoratorMetadata": false, // not supported by vite/esbuild
     "useDefineForClassFields": true, // strongly suggested by vite
-    "isolatedModules": true,  // required by vite/esbuild
+    "isolatedModules": true, // required by vite/esbuild
     "skipLibCheck": true, // workaround, see README.md
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -20,7 +20,7 @@
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitOverride": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["src/**/*.spec.ts"],

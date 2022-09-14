@@ -1,6 +1,6 @@
 # Yarn 3 + Vue 3 + Typescript + Vite + Jest + VS Code + ESLint + Prettier
 
-## Setup steps
+## Setup project with Yarn, Typescript, Vite and Vue
 
 - Install yarn (globally): `npm install yarn --global`
 - Initialize vite project: `yarn create vite <PROJECT_NAME> --template vue-ts`
@@ -9,55 +9,46 @@
 - Install dependencies: `yarn install`
 - Install `yarn plugin import interactive-tools` to conveniently update dependencies via `yarn upgrade-interactive` (see [here](https://yarnpkg.com/api/modules/plugin_interactive_tools.html) for more)
 - Add some yarn support for Typescript: `yarn plugin import typescript` (see [here](https://yarnpkg.com/api/modules/plugin_typescript.html) for more)
-- Setup jest as test runner:
-  - Install dependencies: `yarn add -D jest ts-jest` (see [Jest docs](https://jestjs.io/docs/getting-started#using-typescript-via-ts-jest) for more)
-  - Add `"test": "jest"` to `scripts` section of `package.json`
-  - Create Jest configuration file `jest.config.js`:
-    ```js
-    /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
-    module.exports = {
-      testEnvironment: 'jsdom', // we use jsdom instead of node since we test DOM stuff
-      clearMocks: true, // convenience feature to ensure mocks are always cleared after each test
+
+### Good to know: What happens when running `yarn build` in this setup
+
+- vue-tsc
+- vite
+
+TODO: elaborate...
+
+## Setup Test runner
+
+### Option A) Use jest
+
+- Install dependencies for jest: `yarn add -D jest ts-jest jest-environment-jsdom` (see [Jest docs](https://jestjs.io/docs/getting-started#using-typescript-via-ts-jest) for more)
+- Add entry `"test": "jest"` to `scripts` section of `package.json`
+- Create Jest configuration file `jest.config.js`:
+  ```js
+  /** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+  module.exports = {
+    testEnvironment: 'jsdom', // we use jsdom instead of node since we test DOM stuff
+    clearMocks: true, // convenience feature to ensure mocks are always cleared after each test
+    transform: {
+      '^.+\\.ts$': 'ts-jest' // use ts-jest to transform .ts files to .js
+    },
+    testEnvironmentOptions: {
+      customExportConditions: ['node', 'node-addons'] // required for jest-environment-jsdom
+    }
+  };
+  ```
+  Note: this setup is a bit different than `yarn ts-jest config:init` (e.g `transform` is used instead of `preset`)
+- Install dependencies for Vue testing: `yarn add -D @vue/test-utils @vue/vue3-jest @babel/core babel-jest @vue/compiler-sfc @vue/compiler-dom`
+- Configure processing Single-File Components in `jest.config.js`:
+  ```js
+      moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
       transform: {
-        '^.+\\.ts$': 'ts-jest' // use ts-jest to transform .ts files to .js
-      }
-    };
-    ```
-    Note: this setup is a bit different than `yarn ts-jest config:init` (e.g `transform` is used instead of `preset`)
-- Setup testing for Vue:
-  - Install dependencies: `yarn add -D @vue/test-utils @vue/vue3-jest @babel/core babel-jest @vue/compiler-sfc @vue/compiler-dom`
-  - Configure processing Single-File Components in `jest.config.js`:
-    ```js
-        moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
-        transform: {
-            "^.+\\.vue$": "@vue/vue3-jest",
-            ...
-        },
-    ```
-- Setup formatting with prettier:
-  - Install prettier: `yarn add -D prettier`
-  - Configure `.prettierrc.json` and `.prettierignore` (see [docs](https://prettier.io/docs/en/install.html) for more)
-  - Add script `format` in `package.json`: `"prettier --write ."`
-- Setup pre-commit hooks: 
-    - follow [these instructions](https://typicode.github.io/husky/#/?id=install-1) for husky
-    - follow [these instructions](https://prettier.io/docs/en/install.html#git-hooks) for prettier
-- Setup linting with ESLint:
-  - Install ESLint: `yarn add -D eslint eslint-config-prettier eslint-plugin-vue @typescript-eslint/eslint-plugin @typescript-eslint/parser vue-eslint-parser`
-  - Read [eslint-plugin-vue documentation](https://eslint.vuejs.org/user-guide/#installation) to learn how to configure ESLint with Typescript and Vue 3
-  - Take a look at my `.eslintrc.js` (using `yarn create @eslint/config` required some manual tuning to work with Vue 3)
-  - Add script in `package.json`: `eslint --ext .js,.ts,.vue --ignore-path .prettierignore .` (note: I reuse the exclusion rules for prettier to avoid file duplication)
+          "^.+\\.vue$": "@vue/vue3-jest",
+          ...
+      },
+  ```
 
-### VSCode Setup
-
-- Install [VSCode](https://code.visualstudio.com/)
-- Install [ZipFS plugin](https://marketplace.visualstudio.com/items?itemName=arcanis.vscode-zipfs) to support files zipped by yarn
-- Add Yarn support for VSCode: `yarn dlx @yarnpkg/sdks vscode`
-- Install [Volar plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for Vue support
-  - Use Workspaces version of Typescript for Volar via action "Volar: Select Typescript Version..."
-- Install [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  - Configure plugin as default code formatter in `.vscode/settings.json`: `"editor.defaultFormatter": "esbenp.prettier-vscode"`
-
-### A note on using jest.config.ts (don't...)
+#### A note on using jest.config.ts (don't...)
 
 I first really wanted the Jest config to be configured via a Typescript file for consistency.
 However, this requires introducing several dependencies and a more complicated setup.
@@ -82,26 +73,49 @@ If you still want to do it, here are some hints how to do it:
          },
      ```
 
-## What's happening when running `yarn jest` in my current setup
+#### Good to know: What's happening when running `yarn jest` in this setup
 
 Jest:
 
 - Searches for its [configuration](https://jestjs.io/docs/configuration)
-- Optional: If a `jest.config.ts` is found, runs `ts-node` to JIT compile the configuration file
+- Optional: If a `jest.config.ts` is found, runs `ts-node` to JIT compile the configuration file (see section above)
 - Uses `ts-jest` to transform `.ts` files to `.js`
   - "ts-jest is a [Jest transformer](https://jestjs.io/docs/code-transformation) with source map support that lets you use Jest to test projects written in TypeScript"
     - It supports all features of TypeScript including type-checking
     - advantage over @babel/preset-typescript: it solves [Babel's chaveats](https://devblogs.microsoft.com/typescript/typescript-and-babel-7/#caveats)
-  - Hence, `ts-jest` transforms the `.ts` files to `.js` files
 - Uses `vue-jest` to transform `.vue` (Single File Components) files
   - It transforms typescript script blocks within `.vue` to `.js`
 - Searches for spec files
 - Runs the tests
 
-## What happens when running `yarn build` in my current setup
+### Option B) Use vitest
 
-- vue-tsc
-- vite
+TODO
+
+## Setup linting and formatting
+
+- Setup formatting with prettier:
+  - Install prettier: `yarn add -D prettier`
+  - Configure `.prettierrc.json` and `.prettierignore` (see [docs](https://prettier.io/docs/en/install.html) for more)
+  - Add script `format` in `package.json`: `"prettier --write ."`
+- Setup pre-commit hooks:
+  - follow [these instructions](https://typicode.github.io/husky/#/?id=yarn-2) for husky
+  - follow [these instructions](https://prettier.io/docs/en/install.html#git-hooks) for prettier
+- Setup linting with ESLint:
+  - Install ESLint: `yarn add -D eslint eslint-config-prettier eslint-plugin-vue @typescript-eslint/eslint-plugin @typescript-eslint/parser vue-eslint-parser`
+  - Read [eslint-plugin-vue documentation](https://eslint.vuejs.org/user-guide/#installation) to learn how to configure ESLint with Typescript and Vue 3
+  - Take a look at my `.eslintrc.js` (using `yarn create @eslint/config` required some manual tuning to work with Vue 3)
+  - Add script in `package.json`: `eslint --ext .js,.ts,.vue --ignore-path .prettierignore .` (note: I reuse the exclusion rules for prettier to avoid file duplication)
+
+## Setup VSCode
+
+- Install [VSCode](https://code.visualstudio.com/)
+- Install [ZipFS plugin](https://marketplace.visualstudio.com/items?itemName=arcanis.vscode-zipfs) to support files zipped by yarn
+- Add Yarn support for VSCode: `yarn dlx @yarnpkg/sdks vscode`
+- Install [Volar plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for Vue support
+  - Use Workspaces version of Typescript for Volar via action "Volar: Select Typescript Version..."
+- Install [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - Configure plugin as default code formatter in `.vscode/settings.json`: `"editor.defaultFormatter": "esbenp.prettier-vscode"`
 
 ## TODOs
 
