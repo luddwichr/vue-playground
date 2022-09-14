@@ -23,6 +23,5 @@
     "exactOptionalPropertyTypes": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["src/**/*.spec.ts"],
   "references": [{"path": "./tsconfig.node.json"}]
 }
