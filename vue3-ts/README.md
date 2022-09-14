@@ -19,7 +19,20 @@ TODO: elaborate...
 
 ## Setup Test runner
 
-### Option A) Use jest
+### Option A) Use vitest
+
+- Install dependencies: `yarn add -D vitest @vue/test-utils @vue/compiler-dom happy-dom`
+- Add entry `"test": "vitest"` to `scripts` section of `package.json`
+- Adjust `vite.config.ts`: add `/// <reference types="vitest" />`to top of file, and add the following section in the config object: 
+  ```js 
+  test: { 
+        globals: true, 
+        environment: "happy-dom"
+  }
+  ```
+- For VSCode: install plugin ["Vitest"](https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer) 
+
+### Option B) Use jest
 
 - Install dependencies for jest: `yarn add -D jest ts-jest jest-environment-jsdom` (see [Jest docs](https://jestjs.io/docs/getting-started#using-typescript-via-ts-jest) for more)
 - Add entry `"test": "jest"` to `scripts` section of `package.json`
@@ -53,7 +66,7 @@ TODO: elaborate...
 I first really wanted the Jest config to be configured via a Typescript file for consistency.
 However, this requires introducing several dependencies and a more complicated setup.
 Therefore, I decided not to configure this demo project that way.
-If you still want to do it, here are some hints how to do it:
+If you still want to do it, here are some hints how to do it (as of this writing):
 
 1. Add required dependencies: `yarn add -D @jest/types ts-node source-map-support`
    - `@jest/types` to allow types used for `jest.config.ts`
@@ -76,7 +89,6 @@ If you still want to do it, here are some hints how to do it:
 #### Good to know: What's happening when running `yarn jest` in this setup
 
 Jest:
-
 - Searches for its [configuration](https://jestjs.io/docs/configuration)
 - Optional: If a `jest.config.ts` is found, runs `ts-node` to JIT compile the configuration file (see section above)
 - Uses `ts-jest` to transform `.ts` files to `.js`
@@ -87,10 +99,6 @@ Jest:
   - It transforms typescript script blocks within `.vue` to `.js`
 - Searches for spec files
 - Runs the tests
-
-### Option B) Use vitest
-
-TODO
 
 ## Setup linting and formatting
 
@@ -112,17 +120,10 @@ TODO
 - Install [VSCode](https://code.visualstudio.com/)
 - Install [ZipFS plugin](https://marketplace.visualstudio.com/items?itemName=arcanis.vscode-zipfs) to support files zipped by yarn
 - Add Yarn support for VSCode: `yarn dlx @yarnpkg/sdks vscode`
-- Install [Volar plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for Vue support
+- Install [Volar plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for Vue support (**CAUTION:** the old plugin "johnsoncodehk.Volar" does not work in this setup!)
   - Use Workspaces version of Typescript for Volar via action "Volar: Select Typescript Version..."
 - Install [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - Configure plugin as default code formatter in `.vscode/settings.json`: `"editor.defaultFormatter": "esbenp.prettier-vscode"`
-
-## TODOs
-
-- Transforming css/images in jest?
-- ESM support for ts-node?
-- Explain build steps
-- https://class-component.vuejs.org/
 
 ## Current insufficiencies
 
