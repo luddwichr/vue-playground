@@ -21,7 +21,7 @@ TODO: elaborate...
 
 ### Option A) Use vitest
 
-- Install dependencies: `yarn add -D vitest @vue/test-utils @vue/compiler-dom happy-dom`
+- Install dependencies: `yarn add -D vitest @vue/test-utils @vue/compiler-dom happy-dom @types/jest`
 - Add entry `"test": "vitest"` to `scripts` section of `package.json`
 - Adjust `vite.config.ts`: add `/// <reference types="vitest" />`to top of file, and add the following section in the config object: 
   ```js 
