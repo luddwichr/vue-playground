@@ -1,4 +1,4 @@
-# Yarn 3 + Vue 3 + Typescript + Vite + Jest + VS Code + ESLint + Prettier
+# Yarn 3 + Vue 3 + Typescript + Vite + Jestbyarn dlx @yarnpkg/sdks + VS Code + ESLint + Prettier
 
 ## Setup project with Yarn, Typescript, Vite and Vue
 
@@ -7,8 +7,14 @@
 - Go to project folder: `cd <PROJECT_NAME>`
 - Configure yarn version: `yarn set version stable`
 - Install dependencies: `yarn install`
-- Install `yarn plugin import interactive-tools` to conveniently update dependencies via `yarn upgrade-interactive` (see [here](https://yarnpkg.com/api/modules/plugin_interactive_tools.html) for more)
+- Install `yarn plugin import interactive-tools` (see [here](https://yarnpkg.com/api/modules/plugin_interactive_tools.html) for more)
 - Add some yarn support for Typescript: `yarn plugin import typescript` (see [here](https://yarnpkg.com/api/modules/plugin_typescript.html) for more)
+
+### How to update dependencies
+
+- Update dependencies defined in `package.json`: `yarn upgrade-interactive`
+- Update yarn: `yarn set version stable`
+- Update yarn SDKs: `yarn dlx @yarnpkg/sdks`
 
 ### Good to know: What happens when running `yarn build` in this setup
 
@@ -23,14 +29,14 @@ TODO: elaborate...
 
 - Install dependencies: `yarn add -D vitest @vue/test-utils @vue/compiler-dom happy-dom @types/jest`
 - Add entry `"test": "vitest"` to `scripts` section of `package.json`
-- Adjust `vite.config.ts`: add `/// <reference types="vitest" />`to top of file, and add the following section in the config object: 
-  ```js 
-  test: { 
-        globals: true, 
+- Adjust `vite.config.ts`: add `/// <reference types="vitest" />`to top of file, and add the following section in the config object:
+  ```js
+  test: {
+        globals: true,
         environment: "happy-dom"
   }
   ```
-- For VSCode: install plugin ["Vitest"](https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer) 
+- For VSCode: install plugin ["Vitest"](https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer)
 
 ### Option B) Use jest
 
@@ -89,6 +95,7 @@ If you still want to do it, here are some hints how to do it (as of this writing
 #### Good to know: What's happening when running `yarn jest` in this setup
 
 Jest:
+
 - Searches for its [configuration](https://jestjs.io/docs/configuration)
 - Optional: If a `jest.config.ts` is found, runs `ts-node` to JIT compile the configuration file (see section above)
 - Uses `ts-jest` to transform `.ts` files to `.js`
