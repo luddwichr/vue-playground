@@ -94,6 +94,8 @@ If you still want to do it, here are some hints how to do it (as of this writing
 
 #### Good to know: What's happening when running `yarn jest` in this setup
 
+<details>
+<summary>click to see details</summary>
 Jest:
 
 - Searches for its [configuration](https://jestjs.io/docs/configuration)
@@ -106,6 +108,7 @@ Jest:
   - It transforms typescript script blocks within `.vue` to `.js`
 - Searches for spec files
 - Runs the tests
+</details>
 
 ## Setup linting and formatting
 
@@ -128,10 +131,6 @@ Jest:
 - Install [ZipFS plugin](https://marketplace.visualstudio.com/items?itemName=arcanis.vscode-zipfs) to support files zipped by yarn
 - Add Yarn support for VSCode: `yarn dlx @yarnpkg/sdks vscode`
 - Install [Volar plugin](https://marketplace.visualstudio.com/items?itemName=Vue.volar) for Vue support (**CAUTION:** the old plugin "johnsoncodehk.Volar" does not work in this setup!)
-  - Use Workspaces version of Typescript for Volar via action "Volar: Select Typescript Version..."
+  - **IMPORTANT**: Ensure that Volar uses Workspaces version of Typescript for Volar via action "Volar: Select Typescript Version..."
 - Install [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - Configure plugin as default code formatter in `.vscode/settings.json`: `"editor.defaultFormatter": "esbenp.prettier-vscode"`
-
-## Current insufficiencies
-
-- Remove `"skipLibCheck": true` in tsconfig.json once [this](https://github.com/johnsoncodehk/volar/issues/1114) and [this](https://github.com/vuejs/core/issues/1228) issue are resolved

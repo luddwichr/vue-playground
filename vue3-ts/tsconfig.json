@@ -12,7 +12,7 @@
     "emitDecoratorMetadata": false, // not supported by vite/esbuild
     "useDefineForClassFields": true, // strongly suggested by vite
     "isolatedModules": true, // required by vite/esbuild
-    "skipLibCheck": true, // workaround, see README.md
+    "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
