@@ -2,7 +2,7 @@
   "name": "vue2-testing-memory-leak",
   "version": "0.0.1",
   "private": true,
-  "author": "luddwich_r",
+  "author": "luddwichr",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.22.8",

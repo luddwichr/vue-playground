@@ -1,4 +1,4 @@
-# Reproduce and analyze memory leak when using Vue2 + jest + vue-test-utils
+# Reproduce and analyze memory leak when using Vue 2 + jest + vue-test-utils
 
 See https://github.com/vuejs/vue-test-utils/issues/2041 for what the problem is.
 
